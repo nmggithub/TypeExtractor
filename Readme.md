@@ -24,10 +24,6 @@ Then, from the root of this repository, run the following (where `/path/to/build
 $ cmake --build /path/to/build/directory
 ```
 
-### On platform support
-
-Currently, TypeExtractor will only compile on macOS where [LLVM has been installed with Hombebrew](https://formulae.brew.sh/formula/llvm). I plan to get Linux support working soon. TypeExtractor will expicitly error if you attempt to compile it on Windows, but I might remove that error if I find it works well on Windows.
-
 ## Using TypeExtractor
 
 The Clang compiler has two stages that TypeExtractor makes use of:
@@ -54,7 +50,6 @@ The `stderr` may include some error text from Clang, if it encounters warnings a
 
 # Upcoming Improvements
 
-- Support for other platforms besides macOS
 - Better handling of inlinable functions
 - Support for more kinds of type declarations
 - General improvements
