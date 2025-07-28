@@ -29,11 +29,11 @@ find_package(Clang REQUIRED CONFIG)
 
 # === Shared Library ===
 
-file(GLOB_RECURSE PLUGIN_SOURCES
+file(GLOB_RECURSE SHARED_LIB_SOURCES
         ${CMAKE_CURRENT_LIST_DIR}/src/shared/*.h
         ${CMAKE_CURRENT_LIST_DIR}/src/shared/*.cpp
 )
-add_library(shared STATIC ${PLUGIN_SOURCES})
+add_library(shared STATIC ${SHARED_LIB_SOURCES})
 
 target_link_libraries(shared PRIVATE
         clangAST
