@@ -6,13 +6,13 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 execute_process(
-    COMMAND brew --prefix llvm
-    OUTPUT_VARIABLE LLVM_PREFIX
-    OUTPUT_STRIP_TRAILING_WHITESPACE
-    RESULT_VARIABLE BREW_RESULT
+        COMMAND brew --prefix llvm
+        OUTPUT_VARIABLE LLVM_PREFIX
+        OUTPUT_STRIP_TRAILING_WHITESPACE
+        RESULT_VARIABLE BREW_RESULT
 )
 if(NOT BREW_RESULT EQUAL 0)
-    message(FATAL_ERROR "Failed to find LLVM via brew")
+        message(FATAL_ERROR "Failed to find LLVM via brew")
 endif()
 
 # https://github.com/llvm/llvm-project/blob/llvmorg-20.1.8/llvm/docs/CMake.rst#embedding-llvm-in-your-project
@@ -33,7 +33,7 @@ file(GLOB_RECURSE PLUGIN_SOURCES
         ${CMAKE_CURRENT_LIST_DIR}/src/shared/*.h
         ${CMAKE_CURRENT_LIST_DIR}/src/shared/*.cpp
 )
-add_library(shared STATIC ${PLUGIN_SOURCES} )
+add_library(shared STATIC ${PLUGIN_SOURCES})
 
 target_link_libraries(shared PRIVATE
         clangAST
@@ -41,7 +41,7 @@ target_link_libraries(shared PRIVATE
 )
 
 target_include_directories(shared
-    PUBLIC
+        PUBLIC
         $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/src/shared/include>
 )
 
@@ -54,7 +54,7 @@ file(GLOB_RECURSE PLUGIN_SOURCES
         ${CMAKE_CURRENT_LIST_DIR}/src/clang-plugin/*.h
         ${CMAKE_CURRENT_LIST_DIR}/src/clang-plugin/*.cpp
 )
-add_library(clang-plugin MODULE ${PLUGIN_SOURCES} )
+add_library(clang-plugin MODULE ${PLUGIN_SOURCES})
 
 target_link_libraries(clang-plugin PRIVATE
         shared
