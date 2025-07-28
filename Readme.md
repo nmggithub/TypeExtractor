@@ -12,17 +12,19 @@ TypeExtractor is designed to be very minimal. It's mostly a wrapper around Clang
 
 ## Building TypeExtractor
 
-TypeExtractor uses [CMake](https://cmake.org/) for building. To build TypeExtractor, first make a directory for its build artifacts to be output to. From that directory, run the following (where `/path/to/project/root` is the path to your cloned copy of this repository):
+TypeExtractor uses [CMake](https://cmake.org/) for building. To build TypeExtractor, first set up a build directory by running the below command from the root of this repository. CMake will create the directory if it doesn't already exist.
 
 ```
-$ cmake /path/to/project/root
+$ cmake -B /path/to/your/build/directory
 ```
 
-Then, from the root of this repository, run the following (where `/path/to/build/directory` is the path to your previously-created build directory):
+Then, when you're ready to build, run the following from the root of this repository:
 
 ```
-$ cmake --build /path/to/build/directory
+$ cmake --build /path/to/your/build/directory
 ```
+
+TypeExtractor's build artifacts will be output into the build directory.
 
 ## Using TypeExtractor
 
