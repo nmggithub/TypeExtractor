@@ -19,6 +19,7 @@ $ cmake /path/to/project/root
 ```
 
 Then, from the root of this repository, run the following (where `/path/to/build/directory` is the path to your previously-created build directory):
+
 ```
 $ cmake --build /path/to/build/directory
 ```
@@ -32,10 +33,13 @@ Currently, TypeExtractor will only compile on macOS where [LLVM has been install
 The Clang compiler has two stages that TypeExtractor makes use of:
 
 1. The Clang **driver** is what the `clang` executable calls when compiling code. TypeExtractor provides a Clang plugin (`libte.so`) that can be used with any compatible Clang executable like so:
+
 ```
 $ /path/to/clang -fplugin=/path/to/libte.so -Xclang -plugin -Xclang type-extractor [args...]
 ```
+
 2. The Clang **frontend** is often then called by the driver, but can also be called on its own. TypeExtractor provides a standalone executable (`te`) that takes in code through `stdin` and can be called like so:
+
 ```
 $ cat header.h | /path/to/te [args...]
 ```
