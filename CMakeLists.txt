@@ -57,7 +57,7 @@ file(GLOB_RECURSE SHARED_LIB_SOURCES
 add_library(shared STATIC ${SHARED_LIB_SOURCES})
 
 target_link_directories(shared PRIVATE ${LLVM_LIBRARY_DIRS})
-target_include_directories(shared PRIVATE ${LLVM_INCLUDE_DIRS})
+target_include_directories(shared PUBLIC ${LLVM_INCLUDE_DIRS})
 
 target_link_libraries(shared PRIVATE
         clang-cpp
